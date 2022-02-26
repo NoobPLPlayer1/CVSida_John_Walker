@@ -1,0 +1,9 @@
+
+<h1>Tjälstav</h1>
+<p>
+    Programmet hämtar en json fil, läser in data för varje tjälstav och ritar en bild över temprature vid olika djup.
+</p>
+<img src="./Images/demo_image.jpg">
+<p>
+    TEST
+</p>
