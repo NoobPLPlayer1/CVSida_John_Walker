@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import GithubProjects from './components/GithubProjects';
+import './style.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GithubProjects /> 
-    <App /> 
+      <App /> 
   </React.StrictMode>,
-  document.getElementById('project_list')
+  document.getElementById('App')
 );

@@ -4,61 +4,209 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="./script.js"></script>
-    <script type="text/javascript" src="./paskagg.js"></script>
+   
     <title>Document</title>
 </head>
-<body onload="addProjectViews(document.getElementById('project_list'), document.getElementById('projects'))">
-    <div class="grid">
-        <nav class="grid_item">
-            <a href="#" class="fake_menu_button">Hem</a>
-            <a href="./projects.html" class="menu_button">Portfolio</a>
-            <a href="./degree.html" class="menu_button">Utbildningar</a>
-            <a href="./work.html" class="menu_button">Tidigare Arbeten</a>
-            <a href="./about.html" class="menu_button">Kontaktuppgifter</a>
-        </nav>
-        <div id="project_list" class="grid_item" onload="addProjectViews(document.getElementById('project_list'))">
-            
-        </div>
-        <div class="grid_item priority_item">
-            <img onclick="Funny1Trigger()" src="./../Images/portrait.png" alt="" id="portrait">
-            <div class="box">
-                <p>Jag heter John Walker är 23 år gammal, studerar just nu till <a href="*">System&shy;utvecklare i .NET med AI kompetens</a>. Har hållt på mycket med programmering på fritiden, främst inom grafik programmering med exempelvis SFML, OpenGL och har även började lära mig Vulkan nu i höstas. </p>
-            </div>
-            <div class="box"> 
-                <h2>Utbildningar</h2>
-                <ul id="edu"></ul>
-            </div>
-            <div class="box"> 
-                <h2>Språk</h2>
-                <ul id="lang"></ul>
-            </div>
-        </div>
-        </div>
+<body>
+    <div id="App">
+
     </div>
-    <div class="box print_only">
-        <h1>Kontakt&shy;uppgifter</h1>
-        <div class="table">
-            <table>
-                <tr>
-                    <td >
-                        Epost:
-                    </td>
-                    <td>
-                        john&shy;walker&shy;0x62&shy;@gmail.com
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Mobil&shy;nummer: 
-                    </td>
-                    <td>
-                        070-8048383
-                    </td>
-                </tr>
-            </table>
-       </div>
-    
 </body>
 </html>
+<!--<script type="text/javascript" src="%PUBLIC_URL%/script.js"></script>
+<script type="text/javascript" src="%PUBLIC_URL%/paskagg.js"></script>-->
+
+<script type="text/javascript">
+    function Funny1Trigger()
+    {
+        setInterval(Funny1, 1);
+        lastUpdate = Date.now();
+    }
+
+    var lastUpdate = Date.now();
+
+    var r = 0;
+    var g = 0;
+    var b = 0;
+    var dr = 13;
+    var dg = 17;
+    var db = 11;
+
+    function Funny1(){
+        var now = Date.now();
+        var span = now - lastUpdate;
+        lastUpdate = now;
+        let f = span.toFixed() * 0.01;
+        if(r > 255 || r < 0)
+            dr *= -1;
+        if(g > 255 || g < 0)
+            dg *= -1;
+        if(b > 255 || b < 0)
+            db *= -1;
+        r += dr * f;
+        g += dg * f;
+        b += db * f;
+        document.body.style.backgroundColor = "rgb(" + 
+            r + ", " + 
+            g + ", " + 
+            b + ")";
+        document.body.childNodes.forEach(Funny1Text);
+    }
+    function Funny1Text(element)
+    {
+        console.log("test")
+        element.style.color = "rgb(" + 
+        r + ", " + 
+        g + ", " + 
+        b + ")";
+        element.childNodes.forEach(Funny1Text);
+    }
+
+    const comb = [];
+    let len = Math.floor(Math.random() * 8) + 2;
+    for(var k = 0; k < len; k++)
+    {
+        comb.push(Math.floor(Math.random() * 10).toString());
+    }
+
+
+    document.addEventListener('keydown', keyDown)
+
+    function Funny2()
+    {
+        document.body.childNodes.forEach(abs);
+        var elements = document.body.innerHTML;
+        var bodyHTML = '<div class="popup" style="visibility: visible"> <div class="close button" onClick="window.location.reload(true)">&times;</div> <div id="project_view" class="popup-content">' + elements + "</div></div>";
+        document.body.innerHTML = bodyHTML;
+
+    }
+
+    function abs(element)
+    {
+        element.className = "lol";
+        element.childNodes.forEach(abs);
+    }
+
+    var current = 0;
+    function keyDown(e)
+    {
+        if(e.key == comb[current]){
+            if(current == 0)
+                document.body.innerHTML += '<div id="funny2"></div>';
+            current += 1;
+            if(current >= comb.length){
+                document.body.removeChild(document.getElementById("funny2"))
+                Funny2();
+            }
+            else{
+                document.getElementById("funny2").innerHTML = (comb.length - current).toString();
+            }
+        }
+        else if(current > 0)
+        {
+            current = 0;
+            document.body.removeChild(document.getElementById("funny2"))
+        }
+    }
+    function loadProjectViewObject(projectList, title, image, desc, popup)
+    {
+        let text = 
+        '<div class="box projectbox">' +
+            '<div class="image_full">' +
+                '<img class="project_image" src="%PUBLIC_URL%/Images/' + image + '">' +
+            '</div>' +
+            '<div class="project_text">' +
+                '<h1>' + title + '</h1>'+
+                '<p>' + desc + '</p>' +
+                (popup != null ? '<div class="button" onClick="Show(\'popup_window\');Show(\'projects\');" value="Show" id="check">Läs mer</div>' : '') +
+            '</div>'+
+        '</div>';
+        projectList.innerHTML += text;
+    }
+
+    function loadLanguages(lang){
+        var element = document.getElementById("lang");
+        addListElement(element, lang)
+    }
+    function loadEducation(lang){
+        var element = document.getElementById("edu");
+        addListElement(element, lang)
+    }
+    function addListElement(parent, lang){
+        
+        var add = "<li>";
+        if(lang.Ref != null){
+            add += "<a href='";
+            add += lang.Ref;
+            add +="'>"
+            add += lang.Text;
+            add += "</a>";
+        }
+        else {
+            add += lang.Text;
+        }
+        add += "</li>";
+        parent.innerHTML += add;
+    }
+
+    function Show(id) {
+        document.getElementById(id).style.visibility = 'visible';
+    }
+    function Hide(id) {
+        document.getElementById(id).style.visibility = 'hidden';
+    }
+
+    function loadPopup(popup)
+    {
+        var target = "%PUBLIC_URL%/Content/" + popup + ".txt";
+        readTextFile(target, function(text){
+            document.getElementById("project_view").innerHTML = text;
+            
+        });
+    }
+
+    function readJsonFile(file, callback) {
+        var rawFile = new XMLHttpRequest();
+        rawFile.overrideMimeType("application/json");
+        rawFile.open("GET", file, true);
+        rawFile.onreadystatechange = function() {
+            if (rawFile.readyState === 4 && rawFile.status == "200") {
+                callback(rawFile.responseText);
+            }
+        }
+        rawFile.send(null);
+    }
+    function readTextFile(file, callback) {     
+        var rawFile = new XMLHttpRequest();
+        rawFile.overrideMimeType("application/txt");
+        rawFile.open("GET", file, true);
+        rawFile.onreadystatechange = function() {
+            if (rawFile.readyState === 4 && rawFile.status == "200") {
+                callback(rawFile.responseText);
+            }
+        }
+        rawFile.send(null);
+    }
+
+    function addProjectViews(projectList, popupList)
+    {
+        if(projectList != null){
+            readJsonFile("%PUBLIC_URL%/data.json", function(text){
+                var list = JSON.parse(text);
+                var k = -1;
+                list.Projects.forEach(element => {
+                    loadProjectViewObject(projectList, element.Title, element.Image, element.Desc, element.Popup);
+                    if(element.Popup != null && popupList != null) {
+                        loadPopup(element.Popup);
+                    }
+                });
+                list.Languages.forEach(element => {
+                    loadLanguages(element)
+                });
+                list.Education.forEach(element => {
+                    loadEducation(element)
+                });
+            });
+        }
+    }
+</script>

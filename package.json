@@ -1,5 +1,5 @@
 {
-  "homepage": "https://NoobPLPlayer1.github.io/CVSida_John_Walker/public",
+  "homepage": "https://NoobPLPlayer1.github.io/CVSida_John_Walker",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -10,6 +10,8 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
     "web-vitals": "^2.1.4"
   },
