@@ -32,7 +32,7 @@ function Funny1(){
         r + ", " + 
         g + ", " + 
         b + ")";
-    //document.body.childNodes.forEach(Funny1Text);
+    document.body.childNodes.forEach(Funny1Text);
 }
 function Funny1Text(element)
 {
