@@ -8,7 +8,7 @@ function loadProjectViewObject(projectList, title, image, desc, popup)
         '<div class="project_text">' +
             '<h1>' + title + '</h1>'+
             '<p>' + desc + '</p>' +
-            (popup != null ? '<div class="button" onclick="Show(\'popup_window\');Show(\'projects\');" value="Show" id="check">Läs mer</div>' : '') +
+            (popup != null ? '<div class="button" onClick="Show(\'popup_window\');Show(\'projects\');" value="Show" id="check">Läs mer</div>' : '') +
         '</div>'+
     '</div>';
     projectList.innerHTML += text;
@@ -23,6 +23,7 @@ function loadEducation(lang){
     addListElement(element, lang)
 }
 function addListElement(parent, lang){
+    
     var add = "<li>";
     if(lang.Ref != null){
         add += "<a href='";

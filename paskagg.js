@@ -58,7 +58,7 @@ function Funny2()
 {
     document.body.childNodes.forEach(abs);
     var elements = document.body.innerHTML;
-    var bodyHTML = '<div class="popup" style="visibility: visible"> <div class="close button" onclick="window.location.reload(true)">&times;</div> <div id="project_view" class="popup-content">' + elements + "</div></div>";
+    var bodyHTML = '<div class="popup" style="visibility: visible"> <div class="close button" onClick="window.location.reload(true)">&times;</div> <div id="project_view" class="popup-content">' + elements + "</div></div>";
     document.body.innerHTML = bodyHTML;
 
 }
