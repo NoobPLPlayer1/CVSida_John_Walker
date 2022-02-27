@@ -1,9 +1,10 @@
+
 function loadProjectViewObject(projectList, title, image, desc, popup)
 {
     let text = 
     '<div class="box projectbox">' +
         '<div class="image_full">' +
-            '<img class="project_image" src="./Images/' + image + '">' +
+            '<img class="project_image" src="%PUBLIC_URL%/Images/' + image + '">' +
         '</div>' +
         '<div class="project_text">' +
             '<h1>' + title + '</h1>'+
@@ -48,7 +49,7 @@ function Hide(id) {
 
 function loadPopup(popup)
 {
-    var target = "./Content/" + popup + ".txt";
+    var target = "%PUBLIC_URL%/Content/" + popup + ".txt";
     readTextFile(target, function(text){
         document.getElementById("project_view").innerHTML = text;
         
@@ -56,11 +57,18 @@ function loadPopup(popup)
 }
 
 function readJsonFile(file, callback) {
+    fetch(file).then((response) => {
+        return response.json()
+    }).then((json) => {
+        callback(json);
+    })
+
+    
     var rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
     rawFile.open("GET", file, true);
     rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
+        if (rawFile.readyState === 4) {
             callback(rawFile.responseText);
         }
     }
@@ -71,7 +79,7 @@ function readTextFile(file, callback) {
     rawFile.overrideMimeType("application/txt");
     rawFile.open("GET", file, true);
     rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
+        if (rawFile.readyState === 4) {
             callback(rawFile.responseText);
         }
     }
@@ -81,7 +89,8 @@ function readTextFile(file, callback) {
 function addProjectViews(projectList, popupList)
 {
     if(projectList != null){
-        readJsonFile("./data.json", function(text){
+        readJsonFile("%PUBLIC_URL%/data.json", function(text){
+            alert(text);
             var list = JSON.parse(text);
             var k = -1;
             list.Projects.forEach(element => {
@@ -99,5 +108,3 @@ function addProjectViews(projectList, popupList)
         });
     }
 }
-
-addProjectViews(document.getElementById('project_list'), document.getElementById('projects'));
