@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/CVSida_John_Walker/static/js/main.d952d63b.js",
-    "index.html": "/CVSida_John_Walker/index.html",
-    "main.d952d63b.js.map": "/CVSida_John_Walker/static/js/main.d952d63b.js.map"
+    "main.js": "/CVSida_John_Walker/public/static/js/main.d952d63b.js",
+    "index.html": "/CVSida_John_Walker/public/index.html",
+    "main.d952d63b.js.map": "/CVSida_John_Walker/public/static/js/main.d952d63b.js.map"
   },
   "entrypoints": [
     "static/js/main.d952d63b.js"
