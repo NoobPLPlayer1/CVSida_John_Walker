@@ -1,0 +1,56 @@
+
+{
+    "Projects" : [
+        {
+            "Title" : "CV Sida",
+            "Image" : "project_placeholder.png",
+            "Desc" : "Den här CV sidan gjord inte bara med css och html.",
+            "Popup" : "self"
+        },
+        {
+            "Title" : "Tjälstav",
+            "Image" : "demo_image.jpg",
+            "Desc" : "Ett program för att visa temprature av tjälstav vid olika djup.",
+            "Popup" : "tjalstav"
+        }
+    ],
+    "Languages" : [
+        {
+            "Text" : "Svenska och Engelska"
+        },
+        {
+            "Text" : "C#"
+        },
+        {
+            "Text" : "Java"
+        },
+        {
+            "Text" : "Python"
+        },
+        {
+            "Text" : "Html/Css"
+        },
+        {
+            "Text" : "Javascript"
+        },
+        {
+            "Text" : "Beef",
+            "Ref" : "https://www.beeflang.org/"
+        }
+    ],
+    "Education" : [
+        {
+            "Text" : "System&shy;utvecklare .Net med AI-kompetens</a> (Pågående)",
+            "Ref" : "https://edugrade.com/yh-utbildning/it/systemutvecklarenet-med-ai-kompetens/?utm_campaign=allastudier.se+-+Edugrade++utbildningar&utm_medium=Klick+fr%C3%A5n+allastudier.se&utm_source=Systemutvecklare+.Net+med+AI-kompetens"
+        },
+        {
+            "Text" : "Teknik Bobergsgymnasiet (Inriktningen Informations- och medieteknik)"
+        },
+        {
+            "Text" : "Körkort B"
+        },
+        {
+            "Text" : "Truckkort A2, A3, A4, B2 "
+        }
+    ]
+}
