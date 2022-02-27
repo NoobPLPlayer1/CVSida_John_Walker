@@ -7,6 +7,7 @@ import GithubProjects from './components/GithubProjects';
 ReactDOM.render(
   <React.StrictMode>
     <GithubProjects /> 
+    <App /> 
   </React.StrictMode>,
   document.getElementById('project_list')
 );

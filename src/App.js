@@ -4,7 +4,7 @@ import GithubProjects from './components/GithubProjects';
 function App() {
   return (
     <div>
-      <GithubProjects /> 
+      I am clearly gay!
     </div>
   );
 }
