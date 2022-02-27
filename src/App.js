@@ -1,10 +1,10 @@
 import React from 'react';
-import Lang from './components/lang';
+import GithubProjects from './components/GithubProjects';
 
 function App() {
   return (
     <div>
-      <Lang /> 
+      <GithubProjects /> 
     </div>
   );
 }

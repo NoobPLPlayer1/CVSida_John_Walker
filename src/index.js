@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Lang from './components/lang';
+import GithubProjects from './components/GithubProjects';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Lang /> 
+    <GithubProjects /> 
   </React.StrictMode>,
-  document.getElementById('grid')
+  document.getElementById('project_list')
 );
