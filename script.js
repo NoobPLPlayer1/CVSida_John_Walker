@@ -1,4 +1,3 @@
-
 function loadProjectViewObject(projectList, title, image, desc, popup)
 {
     let text = 

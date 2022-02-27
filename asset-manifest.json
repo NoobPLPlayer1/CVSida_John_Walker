@@ -1,10 +1,14 @@
 {
   "files": {
-    "main.js": "/CVSida_John_Walker/static/js/main.a31c6ec7.js",
+    "main.css": "/CVSida_John_Walker/static/css/main.e63d6424.css",
+    "main.js": "/CVSida_John_Walker/static/js/main.8e05ca67.js",
+    "static/media/Inconsolata-Regular.ttf": "/CVSida_John_Walker/static/media/Inconsolata-Regular.ed7f6e5be703abdc4a71.ttf",
     "index.html": "/CVSida_John_Walker/index.html",
-    "main.a31c6ec7.js.map": "/CVSida_John_Walker/static/js/main.a31c6ec7.js.map"
+    "main.e63d6424.css.map": "/CVSida_John_Walker/static/css/main.e63d6424.css.map",
+    "main.8e05ca67.js.map": "/CVSida_John_Walker/static/js/main.8e05ca67.js.map"
   },
   "entrypoints": [
-    "static/js/main.a31c6ec7.js"
+    "static/css/main.e63d6424.css",
+    "static/js/main.8e05ca67.js"
   ]
 }
