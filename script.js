@@ -80,22 +80,24 @@ function readTextFile(file, callback) {
 
 function addProjectViews(projectList, popupList)
 {
-    readJsonFile("./data.json", function(text){
-        var list = JSON.parse(text);
-        var k = -1;
-        list.Projects.forEach(element => {
-            loadProjectViewObject(projectList, element.Title, element.Image, element.Desc, element.Popup);
-            if(element.Popup != null && popupList != null) {
-                loadPopup(element.Popup);
-            }
+    if(projectList != null){
+        readJsonFile("./data.json", function(text){
+            var list = JSON.parse(text);
+            var k = -1;
+            list.Projects.forEach(element => {
+                loadProjectViewObject(projectList, element.Title, element.Image, element.Desc, element.Popup);
+                if(element.Popup != null && popupList != null) {
+                    loadPopup(element.Popup);
+                }
+            });
+            list.Languages.forEach(element => {
+                loadLanguages(element)
+            });
+            list.Education.forEach(element => {
+                loadEducation(element)
+            });
         });
-        list.Languages.forEach(element => {
-            loadLanguages(element)
-        });
-        list.Education.forEach(element => {
-            loadEducation(element)
-        });
-    });
+    }
 }
 
 addProjectViews(document.getElementById('project_list'), document.getElementById('projects'));
