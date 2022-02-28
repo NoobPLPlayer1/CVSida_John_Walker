@@ -8,20 +8,22 @@ const HidePopup = () => { window["Hide"]('popup_window'); window["Hide"]('projec
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
+
+    const [loading, setLoading] = useState(true);
+    const [gitprojects, setGitprojects] = useState(<div className="box"><h1>Loading github projects...</h1></div>);
     
     useEffect(() => {
         const getProjects = async () => {
             const response = await fetch('https://api.github.com/users/NoobPLPlayer1/repos');
             const json = await response.json();
             setProjects(json);
+            setLoading(false);
         }
         getProjects();
-    }, [])
-
-    useEffect(() => {
         AddProjects();
     }, [])
 
+    //(loading ? <div className="box"><h1>Loading github projects...</h1></div> : <div> { projects.map((item) => { const {id, name, html_url} = item; return <div className="box" key={id}> <h1>{name}</h1> <a href={html_url}>Link</a> </div>; }) } </div>)
     return (
         <div >
             <div className="grid" >
@@ -33,16 +35,12 @@ const Projects = () => {
 
                     </div>
                 </div>
-                <div id="project_list" className="grid_item">
-                {
-                    projects.map((item) => {
-                        const {id, name, html_url} = item; 
-                        return <div className="box" key={id}>
-                            <h1>{name}</h1>
-                            <a href={html_url}>Link</a>
-                        </div>; 
-                        })
-                }
+                <div className="grid_item">
+                    <div className='react-is-stupid'>
+                        {(loading && (<div className="box"><h1>Loading github projects...</h1></div>))}
+                        {(!loading && (projects.map((item) => { const {id, name, html_url} = item; return <div className="box" key={id}> <h1>{name}</h1> <a href={html_url}>Link</a> </div>; })))}
+                    </div>
+                    <div id="project_list"></div>
                 </div>
                 <div className="grid_item">
                     <div className="box unimportant"> 
